@@ -12,3 +12,8 @@ count = {
 		"episode" : 10
 	},
 }
+
+#Credentials
+emailAddress = "emailAddress"
+username = "USERNAME"
+password = "PASSWORD"

@@ -1,7 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time,sys,os
-from config import count
+from config import count,username,password,emailAddress
+import datetime
+import smtplib
 
 def schedule():
 	#Fetches Day 
@@ -50,10 +52,23 @@ def download(title):
 			ctr=ctr+1
 		driver.set_window_size(1124, 850)
 
+		#Executes commmand on terminal
 		cmd = "megadl '"+driver.current_url+"'"
 		os.system(cmd)
 		
+		#Sends Email on Download Completion
+		send_email(title)
+		
 	driver.close()
+
+def send_email(title):
+	msg = title + "Downloaded"
+	# Sends Email using Credentials from Config File
+	server = smtplib.SMTP('smtp.gmail.com:587')
+	server.starttls()
+	server.login(username,password)
+	server.sendmail(emailAddress, emailAddress, msg)
+	server.quit()
 
 #Initiates Downloads According to schedule
 schedule()
