@@ -34,7 +34,7 @@ def download(title):
 	elem.send_keys(Keys.RETURN)
 
 	elem = driver.find_element_by_class_name("title")
-	ext = elem.text
+	text = elem.text
 	text = text.split(" ")
 	
 	#Checks For Latest Episode According to Config File
