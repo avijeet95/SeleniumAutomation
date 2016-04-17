@@ -1,5 +1,24 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time,sys,os
+
+def schedule():
+	#Fetches Day 
+	day = datetime.datetime.today().weekday()
+	
+	#Add Title of Series here. Day 0 stands for Sunday.
+	if day == 0:
+		download("title")
+	elif day == 1:
+		download("title")
+	elif day == 2:
+		download("title")
+	elif day == 3:
+		download("title")
+	elif day == 4:
+		download("title")
+	elif day == 5:
+		download("title")
 
 def download(title):
 	#Initialise Driver
@@ -30,6 +49,5 @@ def download(title):
 	os.system(cmd)
 	driver.close()
 
-
-#Call Download Function
-download("Title")
+#Initiates Downloads According to schedule
+schedule()
